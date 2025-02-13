@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<Style>
+    body {
+        background-color: pink;
+    }
+    .main {  
+        position: absolute;
+        top: 50%;
+        left: 30%;
+        margin-top: -50px;
+        margin-left: 120px;
+        width: auto;
+        height: auto;
+        padding: 10px;
+    }
+    @font-face {
+         font-family:jullyjulia;
+         src: url('jully julia.otf'); 
+    } 
+
+    .Title {
+        font-family:jullyjulia;
+    }
+    .btn {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .btn a , .btn b {
+        color: white;
+        width: 120px;
+        height: auto;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        
+    .btn a{
+        background-color: #13bd3d6b;
+        float:center;
+    }
+    .btn a :hover {
+        background-color: palevioletred;
+    }
+    .btn b {
+        background-color: #e43939b6;
+    }
+    .btn b:hover {
+        background-color: rgba(207, 61, 61, 0.425);
+    }
+</Style>
+</head>
+<body>
+ <div class="main">
+    <div class="Title">
+        <h1>Do you wanna be my valentine?</h1>
+    </div>
+
+    <div class="Cat"> 
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjR4N29rdzU3ZXpmbmZoNWlkNmM4MHpkYnQ2bHRkODV5YXBrc3RqbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/yVWLDBDxzsAqAwnfBD/giphy.gif">
+    </div>
+
+    <div class="btn">
+            <a href="https://www.instagram.com/" id="buttonYes" class="btnY"> 
+                <p>Yes</p>
+            </a>
+       
+        <b id="buttonNo" class="btnN" onclick="changeYesButton()"> 
+            <p>NO</p>
+        </b>
+    </div>
+ </div>
+
+ <script>
+    let clickCount = 0; // Track how many times "NO" is clicked
+
+    function changeYesButton() {
+        let yesButton = document.getElementById("buttonYes");
+        let phrases = [
+            "Are you sure? 😢",
+            "Think again... 🥺",
+            "Don't break my heart 💔",
+            "Last chance! 😭",
+            "Okay... I'm sad now 😔"
+        ];
+
+        yesButton.style.backgroundColor = "red"; // Change color
+        yesButton.style.transform = `scale(${1.2 + clickCount * 0.1})`; // Increase size slightly each time
+
+        // Cycle through phrases (loop back after last one)
+        yesButton.innerHTML = `<p>${phrases[clickCount % phrases.length]}</p>`;
+
+        clickCount++; // Increase click count
+    }
+</script>
+
+</body>
+</html>
